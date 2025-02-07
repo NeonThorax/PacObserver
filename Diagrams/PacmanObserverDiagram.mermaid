@@ -1,0 +1,62 @@
+classDiagram
+    Edible <|-- Pill : implements
+    Edible <|-- PowerPill : implements
+    Edible <|-- Fruit : implements
+
+    Enemy <|-- Ghost : implements
+
+    Pill --> Enemy : associates
+    PowerPill --> Enemy : associates
+    Fruit --> Enemy : associates
+
+    Ghost --> Edible : associates
+
+    class Edible {
+        <<interface>>
+        +register()
+        +unregister()
+        +notify()
+        +getState()
+        +setState(Object)
+
+        -List~Enemy~ enemyList
+    }
+
+    class Pill {
+        +register()
+        +unregister()
+        +notify()
+        +getState()
+        +setState(Object)
+
+        -List~Enemy~ enemyList
+    }
+
+    class Fruit {
+        +register()
+        +unregister()
+        +notify()
+        +getState()
+        +setState(Object)
+
+        -List~Enemy~ enemyList
+    }
+
+    class PowerPill {
+        +register()
+        +unregister()
+        +notify()
+        +getState()
+        +setState(Object)
+
+        -List~Enemy~ enemyList
+    }
+
+    class Enemy {
+        <<interface>>
+        +update(Edible)
+    }
+
+    class Ghost {
+        +update(Edible)
+    }
